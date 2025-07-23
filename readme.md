@@ -30,7 +30,7 @@
 - [.gitignore](#gitignore)
 
 
-### What is git?
+### What is git
 - Git is a distributed version control system that tracks versions of files. It is often used to control source code by programmers who are developing software collaboratively.
 
 ### # Setting up the local git
@@ -39,21 +39,21 @@ git config --global user.name "Your Name"
 git config --global user.email "youremail@mail.com"
 ```
 
-###  # Git Init:
+### Git Init:
 ```bash
 git init
 # or
 git init --inital-branch <branch_name>
 ```
 
-### # Adding files to the staging area
+### Adding files to the staging area
 ```bash
 git add .
 #####
 git add <file_name>
 ```
 
-### # Remove file from staging area (Undo It)
+### Remove file from staging area (Undo It)
 ```bash
 git rm --cached <file_name1> <file_name2>  #... other files
 ```
@@ -63,12 +63,12 @@ git rm --cached <file_name1> <file_name2>  #... other files
 rm -rf .git
 ```
 
-### # Status of the current commit:
+### Status of the current commit:
 ```
 git status
 ```
 
-- -> Git does not track empty folders, only if some files are present
+> Git does not track empty folders, only if some files are present
 
 - Verbose (detailed info)
 -> ```bash
@@ -78,11 +78,11 @@ git status -v # detailed
 git status -s # short
 ```
 
-### # Commit
+### Commit
 ```bash
 git commit -m "<message>"
 ```
--> Now git is tracking the files which are committed, means which were in staging area before commit command.
+> Now git is tracking the files which are committed, means which were in staging area before commit command.
 
 <img width="2213" height="793" alt="1" src="https://github.com/user-attachments/assets/ee69a4a4-b2c5-4e2b-ae4c-cdf74e213f78" />
 
@@ -94,13 +94,13 @@ git commit -m "<message>"
 <img width="2113" height="821" alt="2" src="https://github.com/user-attachments/assets/8a31405d-8371-4a8b-8e3f-248807d500bd" />
 
 
--> If you had made changes in the ***tracked file*** only then you don't need to add first in *staging area*  by using `add` and `commit` separate commands.
+> If you had made changes in the ***tracked file*** only then you don't need to add first in *staging area*  by using `add` and `commit` separate commands.
 ```bash
 git commit -a -m "<commit_message>"
 ```
 
 
-#### # Modifying the existing commit
+#### Modifying the existing commit
 
 --> If you have already last commit present and you want to make changes in file of that commit but not creating a new commit, (To modify a existing commit)
 ```bash
@@ -140,10 +140,10 @@ git commit --allow-empty -m "<message>"
 ```
 
 > Why do you need a empty commit?
-> -> If ever I want to test my CI pipeline over Jenkins etc. .Without creating a new commit or modifying one just creating an empty commit to trigger and test my CI pipeline.\
+> If ever I want to test my CI pipeline over Jenkins etc. .Without creating a new commit or modifying one just creating an empty commit to trigger and test my CI pipeline.\
 
 
-### # Git Logs
+### Git Logs
 
 - Get the list of commits
 ```bash
@@ -209,7 +209,7 @@ git log --grep="<to_find_string>"
 ```
 
 
-### # Git reset
+### Git reset
 
 - `git reset` provides us options:
 	- Unstage the file changes
@@ -253,7 +253,7 @@ git reset --mixed <c2_commit_id>
 git reset --hard <c2_commit_id>
 ```
 
-### # Git Revert
+### Git Revert
 - The difference in `git revert` and `git reset` is that:
 	- `git reset`:  It modifies the current commit and there is no backup to a commit.
 	- `git revert`:  If you want to undo any commit, then it creates a new commit object without modifying the current (Not loosing the data).
@@ -275,7 +275,7 @@ git checkout <commit_id>
 
 > Use git revert if you want to keep your commit changes stagnant.
 
-### # Branches
+### Branches
 
 > Branches are always associated with commit not when `git init`, default as master.
 
@@ -337,7 +337,7 @@ git switch master
 git merge Feature
 ```
 
-#### # Git Merging Scenario - 2
+#### Git Merging Scenario - 2
 <img width="4720" height="3752" alt="8" src="https://github.com/user-attachments/assets/4b906433-5389-40de-a2fe-796da89f03e5" />
 
 
@@ -364,7 +364,7 @@ git merge Feature
 >This demonstrates a typical feature branch workflow where multiple developers work on separate features before merging them back into the main branch.
 
 
-### # Git conflicts
+### Git conflicts
 <img width="5614" height="3018" alt="9" src="https://github.com/user-attachments/assets/25d2152d-264b-4a21-8c86-28e4d5335016" />
 
 • **Same Starting Point**: Both feature1 and feature2 branches created from commit C2
@@ -396,7 +396,7 @@ git merge Feature
 > Conflicts occur when the same lines in the same files are modified differently in both branches being merged.
 
 
-### # Git cherry-pick
+### Git cherry-pick
 Apart from using `git merge` we have another method to merge the other branches with `master`.
 
 - check out to master branch:
@@ -411,7 +411,7 @@ git cherry-pick <any_feature_branch_commit_id_tobe_merged>
 > Thus a new commit object is created in master branch from feature branch
 
 
-#### # Difference in cherry-pick and merge:
+#### Difference in cherry-pick and merge:
 - If suppose you are working on `feature` branch and you did `4` commits, but 3 commits are ready and the 4th one is not.
 - For a feature in your application, So you want to include the commit from 3rd commit into your `master` branch, you can use `cherry-pick` and use 3rd commit Id from feature branch and use it in master.
 - But if you use `git merge` it will merge all the commits, simply the recent commit from `feature` branch into `master`.
@@ -421,7 +421,7 @@ git cherry-pick <any_feature_branch_commit_id_tobe_merged>
 
 > Best use of cherry-pick is when we have a feature commit ready and other is not, but it is required for updation.
 
-### # Connecting Local Repo to Remote Repo
+### Connecting Local Repo to Remote Repo
 
 - Remote Repositories:
 	- GitHub
@@ -441,7 +441,7 @@ git push -u origin <branch>
 ```
 > After pushing you have a remote tracking branch created which tracks the remote repo and its contents - goes by `origin/<branch>`
 
-#### # Revisiting git log
+#### Revisiting git log
 - This command just refers to the local
 ```sh
 git branch
@@ -452,7 +452,7 @@ git branch
 git branch -r
 ```
 
-### # Git Cloning
+### Git Cloning
 - Cloning a remote repository
 ```sh
 git clone <repo_url.git>
@@ -463,11 +463,11 @@ git clone <repo_url.git>
 git remote -v
 ```
 
-### # Git Fetch and Pull
+### Git Fetch and Pull
 
 - Lets say your project has `master` which is local branch and `origin/master` which is remote tracking branch after you pushed into remote repo.
 
-#### # Fetch
+#### Fetch
 - It is used to download the changes from remote repository to your local repository
 ```sh
 git fetch
@@ -499,7 +499,7 @@ git fetch --all
 git fetch --prune
 ```
 
-#### # Pull
+#### Pull
  - `git pull` is nothing but the combination of 2 commands
 	 - `git fetch`
 	 - `git merge`
@@ -517,7 +517,7 @@ git checkout <local_branch>
 git pull origin <remote_branch>
 ```
 
-#### # using rebase (optional)
+#### using rebase (optional)
 - For a cleaner branch history
 
 > git pull:
@@ -531,10 +531,10 @@ After:
 A---B---C (origin/main)
      \   \
       D---M (your main, M is merge commit)
-```
 
->git pull --rebase
-```sh
+
+>$ git pull --rebase
+
 Before:
 A---B---C (remote)
      \
@@ -543,7 +543,7 @@ A---B---C (remote)
 After:
 A---B---C---D' (linear history, your commit moved on top)
 ```
-### # Git Stash
+### Git Stash
 
 If you have a file in a branch which is already been tracked by git and later you have modified the file and its in staging area, Later you want to move to another branch without committing the changes, then git throws an error like `commit or stash the file as it will be overwritten`.
 Hence we use `git stash` to keep store of  temporary changes in a space  until commit.
@@ -567,7 +567,7 @@ git stash apply <stash_id> # stash@{0}
 git stash clear
 ```
 
-### # .gitignore
+### .gitignore
 
 Certain files and folders need not to be tracked, like `node_modules` `.env`
 
