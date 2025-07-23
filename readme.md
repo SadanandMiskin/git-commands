@@ -1,7 +1,7 @@
 
 ## Table of Contents
 
-- [What is git?](#what-is-git?)
+- [What is git?](#what-is-git)
 - [Setting up the local git](#setting-up-the-local-git)
 - [Git Init](#git-init)
 - [Adding files to the staging area](#adding-files-to-the-staging-area)
@@ -33,7 +33,7 @@
 ### What is git
 - Git is a distributed version control system that tracks versions of files. It is often used to control source code by programmers who are developing software collaboratively.
 
-### # Setting up the local git
+### Setting up the local git
 ```sh
 git config --global user.name "Your Name"
 git config --global user.email "youremail@mail.com"
@@ -71,7 +71,6 @@ git status
 > Git does not track empty folders, only if some files are present
 
 - Verbose (detailed info)
--> ```bash
 ```bash
 git status -v # detailed
 # or
